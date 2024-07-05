@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.155.0/build/three.module.js",
+        "OrbitControls": "https://unpkg.com/three@0.155.0/examples/jsm/controls/OrbitControls.js",
+        "FontLoader": "https://unpkg.com/three@0.155.0/examples/jsm/loaders/FontLoader.js",
+        "TextGeometry": "https://unpkg.com/three@0.155.0/examples/jsm/geometries/TextGeometry.js"
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { FontLoader } from 'FontLoader';
+    import { OrbitControls } from 'OrbitControls';
+    import { TextGeometry } from 'TextGeometry';
+    import data from './src/data/list.js';
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+
+    camera.position.set(0, 0, 200);
+
+    const renderer = new THREE.WebGLRenderer();
+
+    renderer.setClearColor(0xffffff, 1);
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    document.body.appendChild(renderer.domElement);
+
+    const axesHelper = new THREE.AxesHelper(10);
+
+    // scene.add(axesHelper);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+
+    const group = new THREE.Group();
+    for (let i = 0; i < data.length; i++) {
+      const item = data[i];
+      const textSprite = create2DTextSprite(`${item.name}`, `./src/html/${item.name}.html`, 120, '#000000', '#ffffff00');
+      textSprite.position.set(genRandom(-300, 300), genRandom(-200, 200), genRandom(-50, 50));
+
+      group.add(textSprite);
+    }
+    scene.add(group);
+
+    const clock = new THREE.Clock();
+    function animate() {
+      controls.update();
+      const elapsedTime = clock.getElapsedTime();
+      const t = (elapsedTime * 0.1) % 1;
+
+      group.rotation.x = (t / 10) * Math.PI;
+      group.rotation.y = (t / 10) * Math.PI;
+      group.rotation.z = (t / 10) * Math.PI;
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+
+
+    function create2DTextSprite(text, href, fontSize = 64, color = '#000000', backgroundColor = '#fff000') {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      const borderSize = 10;
+
+      // Set the canvas size
+      context.font = `${fontSize}px Arial`;
+      const textWidth = context.measureText(text).width;
+      canvas.width = textWidth + borderSize * 2;
+      canvas.height = fontSize + borderSize * 2;
+
+      // Draw the background
+      context.fillStyle = backgroundColor;
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the text
+      context.fillStyle = color;
+      context.font = `${fontSize}px fantasy`;
+      context.fillText(text, borderSize, fontSize + borderSize);
+
+      // Create a texture from the canvas
+      const texture = new THREE.CanvasTexture(canvas);
+      const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+      const sprite = new THREE.Sprite(spriteMaterial);
+
+      // Adjust the size of the sprite
+      sprite.scale.set(canvas.width / 30, canvas.height / 30, 10);
+      sprite.userData.type = 'link';
+      sprite.userData.href = href;
+
+      return sprite;
+    }
+
+    // Raycaster for detecting mouse clicks
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    window.addEventListener('mousemove', (event) => {
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      // Update the raycaster with the camera and mouse position
+      raycaster.setFromCamera(mouse, camera);
+
+      // Calculate objects intersecting the raycaster
+      const intersects = raycaster.intersectObjects(scene.children);
+
+      if (intersects.length > 0) {
+        const clickedObject = intersects[0].object;
+        if (clickedObject.userData.type === 'link') {
+          // 鼠标样式改为👋
+          document.body.style.cursor = 'pointer';
+        }
+      } else {
+        document.body.style.cursor = 'default';
+      }
+    });
+    // Add event listener for mouse click
+    window.addEventListener('click', (event) => {
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+      // Update the raycaster with the camera and mouse position
+      raycaster.setFromCamera(mouse, camera);
+
+      // Calculate objects intersecting the raycaster
+      const intersects = raycaster.intersectObjects(scene.children);
+
+      if (intersects.length > 0) {
+        const clickedObject = intersects[0].object;
+        if (clickedObject.userData.type === 'link') {
+          console.log(clickedObject.userData.href);
+          window.location.href = clickedObject.userData.href; // Replace with your desired URL
+        }
+      }
+    });
+
+    function genRandom(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+  </script>
+</html>

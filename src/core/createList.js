@@ -22,10 +22,10 @@ function createListHtml() {
 
   // 排序
   info.sort((a, b) => b.time - a.time);
-
+  fs.writeFileSync('./data/list.js', 'export default ' + JSON.stringify(info), { encoding: 'utf-8', flag: 'w' });
   let result = [];
   let start = 0;
-  console.log('共:' +  info.length + '篇');
+  console.log('共:' + info.length + '篇');
   while (start <= info.length) {
     result.push(info.slice(start, start + 10));
     start += 10;
