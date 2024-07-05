@@ -6,15 +6,315 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Growing-profile</title>
     <script src="./src/css/theme/prism.min.js"></script>
-    <link
-      href="./src/css/theme/prism-one-dark.css"
-      rel="stylesheet"
-    />
+    <link href="./src/css/theme/prism-one-dark.css" rel="stylesheet" />
     <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="./src/css/base.css" />
     <link rel="stylesheet" href="./src/css/newsprint.css" />
     <link rel="stylesheet" href="./src/css/color.css" />
     <link rel="stylesheet" href="./src/css/article.css" />
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        text-indent: 0;
+      }
+      h1 {
+        color: black;
+        font-family: 'Microsoft JhengHei', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 18pt;
+      }
+      h2 {
+        color: #00f;
+        font-family: 'Microsoft JhengHei', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 14pt;
+      }
+      .p,
+      p {
+        color: black;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+        margin: 0pt;
+      }
+      .s1 {
+        color: black;
+        font-family: 'Lucida Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s2 {
+        color: black;
+        font-family: 'Microsoft JhengHei', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s3 {
+        color: black;
+        font-family: 'Lucida Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s4 {
+        color: #00f;
+        font-family: 'Lucida Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s5 {
+        color: black;
+        font-family: 'Century Gothic', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s6 {
+        color: black;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10.5pt;
+      }
+      .s7 {
+        color: black;
+        font-family: 'Lucida Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10.5pt;
+      }
+      .h4 {
+        color: black;
+        font-family: 'Microsoft JhengHei', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 10.5pt;
+      }
+      .s8 {
+        color: black;
+        font-family: 'Century Gothic', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 12pt;
+      }
+      .h3 {
+        color: black;
+        font-family: 'Microsoft JhengHei', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 12pt;
+      }
+      .s9 {
+        color: black;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      .s11 {
+        color: #800080;
+        font-family: 'Lucida Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      a {
+        color: #00f;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: underline;
+        font-size: 10pt;
+      }
+      li {
+        display: block;
+      }
+      #l1 {
+        padding-left: 0pt;
+        counter-reset: c1 1;
+      }
+      #l1 > li > *:first-child:before {
+        counter-increment: c1;
+        content: counter(c1, decimal) '. ';
+        color: black;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+      }
+      #l1 > li:first-child > *:first-child:before {
+        counter-increment: c1 0;
+      }
+      li {
+        display: block;
+      }
+      #l2 {
+        padding-left: 0pt;
+        counter-reset: d1 1;
+      }
+      #l2 > li > *:first-child:before {
+        counter-increment: d1;
+        content: counter(d1, decimal) '. ';
+        color: black;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      #l2 > li:first-child > *:first-child:before {
+        counter-increment: d1 0;
+      }
+      li {
+        display: block;
+      }
+      #l3 {
+        padding-left: 0pt;
+        counter-reset: e1 1;
+      }
+      #l3 > li > *:first-child:before {
+        counter-increment: e1;
+        content: counter(e1, decimal) '. ';
+        color: black;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10.5pt;
+      }
+      #l3 > li:first-child > *:first-child:before {
+        counter-increment: e1 0;
+      }
+      li {
+        display: block;
+      }
+      #l4 {
+        padding-left: 0pt;
+        counter-reset: f1 1;
+      }
+      #l4 > li > *:first-child:before {
+        counter-increment: f1;
+        content: counter(f1, decimal) '. ';
+        color: black;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      #l4 > li:first-child > *:first-child:before {
+        counter-increment: f1 0;
+      }
+      li {
+        display: block;
+      }
+      #l5 {
+        padding-left: 0pt;
+        counter-reset: g1 1;
+      }
+      #l5 > li > *:first-child:before {
+        counter-increment: g1;
+        content: counter(g1, decimal) '. ';
+        color: black;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      #l5 > li:first-child > *:first-child:before {
+        counter-increment: g1 0;
+      }
+      li {
+        display: block;
+      }
+      #l6 {
+        padding-left: 0pt;
+        counter-reset: h1 1;
+      }
+      #l6 > li > *:first-child:before {
+        counter-increment: h1;
+        content: counter(h1, decimal) '. ';
+        color: black;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      #l6 > li:first-child > *:first-child:before {
+        counter-increment: h1 0;
+      }
+      li {
+        display: block;
+      }
+      #l7 {
+        padding-left: 0pt;
+        counter-reset: i1 1;
+      }
+      #l7 > li > *:first-child:before {
+        counter-increment: i1;
+        content: counter(i1, decimal) '. ';
+        color: black;
+        font-family: 'Lucida Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      #l7 > li:first-child > *:first-child:before {
+        counter-increment: i1 0;
+      }
+      li {
+        display: block;
+      }
+      #l8 {
+        padding-left: 0pt;
+        counter-reset: j1 1;
+      }
+      #l8 > li > *:first-child:before {
+        counter-increment: j1;
+        content: counter(j1, decimal) '. ';
+        color: black;
+        font-family: PMingLiU, serif;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: none;
+        font-size: 10pt;
+      }
+      #l8 > li:first-child > *:first-child:before {
+        counter-increment: j1 0;
+      }
+
+      p {
+        line-height: 24px !important;
+      }
+
+      body > div.content > p:nth-child(59) {
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
 
   <body>
@@ -41,95 +341,305 @@
       </div>
     </div>
     <div class="content">
-      <p><strong>个人信息</strong></p>
-      <hr />
-      <ul class="ul">
-        <li>姓名: 吴玉配</li>
-        <li>性别: 男</li>
-        <li>出生日期:2001-04-07</li>
-        <li>学历: 本科</li>
-        <li>专业: 计算机科学与技术</li>
-        <li>电话: 18338323927</li>
-        <li>邮箱: wu495174@gmail.com</li>
-        <li>博客: <a href="https://wu-yu-pei.gitee.io/">https://wu-yu-pei.gitee.io/</a></li>
-        <li>Github: <a href="https://github.com/wu-yu-pei">https://github.com/wu-yu-pei</a></li>
-      </ul>
-      <p><strong>专业技能</strong></p>
-      <hr />
-      <p>
-        1.熟练 <strong>CSS+DIV</strong> <strong>布局</strong>,熟练 <strong>CSS3</strong>
-        <strong>属性</strong>和 <strong>H5</strong> 语义化标签.
+      <p style="text-indent: 0pt; text-align: left" />
+      <h2 style="padding-top: 2pt; padding-left: 6pt; text-indent: 0pt; text-align: left">个人信息</h2>
+      <p style="padding-top: 8pt; padding-left: 6pt; text-indent: 0pt; text-align: left">姓名<span class="s1">: </span>吴玉配 性别<span class="s1">: </span>男</p>
+      <p style="padding-top: 9pt; padding-left: 6pt; text-indent: 0pt; text-align: left">年龄：<span class="s1">24 </span>学历<span class="s1">: </span>本科</p>
+      <p style="padding-top: 6pt; padding-left: 6pt; text-indent: 0pt; text-align: left">
+        专业<span class="s1">: </span><span class="s2">计算机科学与技术 </span>电话<span class="s1">: 18338323927</span>
       </p>
-      <p>2.熟练 <strong>JavaScript</strong>,熟练 <strong>ES6+</strong>语法.</p>
-      <p>3.熟练 <strong>Vue.js</strong>,可单独使用 <strong>Vue.js</strong> 单独开发项目.</p>
-      <p>
-        4.熟练
-        <strong>Git</strong
-        >.<strong>模块化</strong>开发,<strong>组件化</strong>开发.熟悉代码规范相关插件
-        <strong>Eslint</strong>,<strong>Prettier</strong> 等
+      <p style="padding-top: 8pt; padding-left: 6pt; text-indent: 0pt; text-align: left">
+        邮箱<a href="mailto:495174699@qq.com" class="s3" target="_blank">: </a><span class="s1">495174699@qq.com Github:</span><span class="s4">https://github.com/wu-yu-pei</span>
       </p>
-      <p>5.熟悉 <strong>express</strong>, <strong>koa</strong> 框架</p>
-      <p>6.熟悉 <strong>微信小程</strong>序开发.</p>
-      <p>
-        7.了解 <strong>node.js</strong>,可使用 node.js
-        搭建服务,开发脚手架,开发<strong>简单工具</strong>.
+      <p style="text-indent: 0pt; text-align: left" />
+      <h2 style="padding-top: 5pt; padding-left: 6pt; text-indent: 0pt; text-align: left">教育经历</h2>
+      <p style="padding-top: 4pt; padding-left: 6pt; text-indent: 0pt; text-align: left">
+        河南财政金融学院 计算机信息与技术 <span class="s1">2019 </span>年 <span class="s1">8 </span>月<span class="s1">-2023 </span>年 <span class="s1">8 </span>月
       </p>
-      <p>8.了解 webpack, Vite 基本配置,熟悉常用 loader,plugin 配置及简单的打包优化和兼容性处理</p>
-      <p>9.了解关系型数据库(Mysql)的基本操作</p>
-      <p>10.了解计算机网络,HTTP,HTTPS 协议</p>
-      <p>11.了解基本的数据结构与算法</p>
-      <p>12.了解 Typescript 的基本使用.</p>
-      <p><strong>项目经验</strong></p>
-      <hr />
-      <p><strong><一>.Vue3后台管理项目(JavaScript版)</strong></p>
-      <p>
-        技 术 栈: Vue3 <strong>Pinia</strong> Vue-router Element-plus Echarts Axios
-        <strong>JavaScript Vite</strong>
+      <p style="text-indent: 0pt; text-align: left" />
+      <h2 style="padding-top: 2pt; padding-left: 6pt; text-indent: 0pt; text-align: left">工作经历</h2>
+      <p style="padding-top: 8pt; padding-left: 6pt; text-indent: 0pt; line-height: 167%; text-align: left">
+        巴奴毛肚火锅 2023 年 5 月-至今 NodeJs 开发工程师郑州优恩信息技术有限公司 2022 年 5 月-2023 年 5 月 Web 前端开发工程师
       </p>
-      <p>预览地址: <a href="http://wuyupei.top:5001">http://wuyupei.top:5001</a></p>
-      <p style="line-height: 2.5rem">
-        项目介绍: 此项目是自己从 0 搭建没有使用任何脚手架,使用当前最新的 Vite 打包工具,以及更适合
-        Vue3 的状态 管理工具 Pinia 进行开发,使用 Eslint,Prettier
-        来保证代码的规范性.使用面向对象的思想封装 Axios,使用 Axios 拦截器携 带
-        token,处理网络错误信息等.项目最终使用 Vite 进行打包,通过对打包后的资源分析,使用 Vite
-        对相关资源进行分包 和优化.
+      <p style="text-indent: 0pt; text-align: left" />
+      <h2 style="padding-left: 6pt; text-indent: 0pt; line-height: 23pt; text-align: left">专业技能</h2>
+      <ol id="l1">
+        <li data-list-text="1.">
+          <p style="padding-top: 9pt; padding-left: 6pt; text-indent: 0pt; line-height: 167%; text-align: left">
+            熟练 <span class="s5">NodeJs </span>可单独使用 <span class="s1">E</span><span class="s5">xpress</span>、<span class="s1">K</span><span class="s5">oa</span>、<span class="s1">N</span
+            ><span class="s5">est</span>、<span class="s1">E</span><span class="s5">gg.js </span>等框架开发项目<span class="s1">.</span>有过大数据量处理<span class="s1">,</span>接口安全<span
+              class="s1"
+              >,</span
+            >性能优化等相关经验<span class="s1">.</span>熟悉 <span class="s5">npm sdk </span>开发<span class="s1">.</span>
+          </p>
+        </li>
+        <li data-list-text="2.">
+          <p class="s5" style="padding-left: 18pt; text-indent: -12pt; line-height: 15pt; text-align: left">
+            <span class="p">熟练 </span>JavaScript<span class="s2">、</span>TypeScript<span class="s2">、</span><span class="s1">,</span>ES6+<span class="p">语法.</span>
+          </p>
+        </li>
+        <li data-list-text="3.">
+          <p class="s5" style="padding-top: 5pt; padding-left: 6pt; text-indent: 0pt; line-height: 145%; text-align: left">
+            <span class="p">熟练 </span>Vue2<span class="s2">、</span>Vue3 <span class="s2">及周边工具 </span>Pinia<span class="s2">、</span>Vite<span class="s2">、</span>Vuex<span class="s2">、</span
+            >Element-plus<span class="s2">、</span>Vue-Router <span class="s2">等</span><span class="p">可单独使用 </span>Vue.js
+            <span class="p">开发大型项目.了解前端 Sdk 埋点,CDN,monorepo 等技术.</span>
+          </p>
+        </li>
+        <li data-list-text="4.">
+          <p style="padding-left: 18pt; text-indent: -12pt; line-height: 18pt; text-align: left">
+            熟练 <span class="s2">微信小程序，</span><span class="s5">uniapp </span>开发<span class="s1">.</span>熟悉微信小程序分包优化等优化技术<span class="s1">.</span>
+          </p>
+        </li>
+        <li data-list-text="5.">
+          <p style="padding-top: 4pt; padding-left: 18pt; text-indent: -12pt; text-align: left">
+            熟练 使用 <span class="s2">Mysql</span>、<span class="s2">MongDB</span>、<span class="s2">Redis </span>数据库,了解基本的数据库优化技巧.数据备份相关知识.
+          </p>
+        </li>
+        <li data-list-text="6.">
+          <p style="padding-top: 8pt; padding-left: 6pt; text-indent: 0pt; line-height: 142%; text-align: left">
+            熟悉 <span class="s5">webpack</span><span class="s1">, </span><span class="s5">Vite </span>基本配置<span class="s1">,</span>熟悉常用 <span class="s5">loader</span><span class="s1">,</span
+            ><span class="s5">plugin </span>配置及简单的打包优化和兼容性处理，熟悉打包工具相关<span class="s2">插件</span>开发。
+          </p>
+        </li>
+        <li data-list-text="7.">
+          <p class="s6" style="padding-left: 19pt; text-indent: -13pt; text-align: left">熟悉 <span class="s7">Linux </span>命令，有服务器部署项目经验<span class="s7">.</span></p>
+        </li>
+        <li data-list-text="8.">
+          <p style="padding-top: 5pt; padding-left: 19pt; text-indent: -13pt; text-align: left">熟练 <span class="s2">Git、CICD、Docker </span>容器技术,了解 Docker Swarm、K8s 基本使用.</p>
+        </li>
+        <li data-list-text="9."><p style="padding-top: 8pt; padding-left: 19pt; text-indent: -13pt; text-align: left">熟练使用 Chat-GPT,文新一言,了解 MJ,SD 等 AI 工具.</p></li>
+        <li data-list-text="10.">
+          <p style="padding-top: 9pt; padding-left: 24pt; text-indent: -18pt; text-align: left">了解计算机网络<span class="s1">,HTTP,HTTPS </span>协议.</p>
+        </li>
+        <li data-list-text="11."><p style="padding-top: 9pt; padding-left: 24pt; text-indent: -18pt; text-align: left">了解基本的数据结构与算法.</p></li>
+        <li data-list-text="12.">
+          <p class="s6" style="padding-top: 5pt; padding-left: 24pt; text-indent: -18pt; text-align: left">
+            阅读过<span class="h4">《代码整洁之道》《重构》</span>相关书籍<span class="s7">,</span>有高标准的代码规范和项目规范自束力。
+          </p>
+        </li>
+      </ol>
+      <p style="text-indent: 0pt; text-align: left" />
+      <h2 style="padding-left: 6pt; text-indent: 0pt; line-height: 22pt; text-align: left">项目经验</h2>
+      <p class="s8" style="padding-top: 7pt; padding-left: 6pt; text-indent: 0pt; text-align: left">&lt;<span class="h3">一</span>&gt; <span class="h3">某公司营销平台</span></p>
+      <p style="padding-top: 10pt; padding-left: 6pt; text-indent: 0pt; line-height: 167%; text-align: left">
+        项目介绍：XX 餐饮公司自研智慧营销平台，项目中集成了企业微信，飞书，阿里云等三方 SDK。结合公司大数据服务，达到精准营销，智能营销的服务，帮助公司战略调整营销手段，提升公司经济效益。
       </p>
-      <p><strong><二>.Vue3后台管理项目(TypeScript版)</strong></p>
-      <p>
-        技 术 栈: Vue3 <strong>VueX</strong> Vue-router Element-plus Axios webpack
-        <strong>TypeScript VueCli</strong>
+      <p style="padding-left: 6pt; text-indent: 0pt; line-height: 15pt; text-align: left">
+        技术栈：<span class="s2">Node</span>、<span class="s2">Mysql</span>、<span class="s2">Redis</span>、<span class="s2">Express </span>等
       </p>
-      <p>预览地址: <a href="http://wuyupei.top:5000">http://wuyupei.top:5000</a></p>
-      <p style="line-height: 2.5rem">
-        项目介绍: 这个项目是一个后台管理项目,使用 Vue3 全家桶, TypeScript 及 Element-Plus ui
-        进行开发,项目中对 Element-Plus 组件, 以及 Echarts 进行二次封装,使用 TypeScript 封装
-        Axios,项目的路由是由后端返回,前端进行动态生 成,打包之后做了一些优化,比如:配置:webpack 的
-        externals 等.
+      <p style="padding-top: 8pt; padding-left: 6pt; text-indent: 0pt; text-align: left">主要工作：</p>
+      <ol id="l2">
+        <li data-list-text="1.">
+          <p style="padding-top: 6pt; padding-left: 18pt; text-indent: -12pt; text-align: left">负责后端项目的日常迭代，根据需求完成<span class="s2">技术设计和开发</span>。</p>
+        </li>
+        <li data-list-text="2.">
+          <p style="padding-top: 5pt; padding-left: 18pt; text-indent: -12pt; text-align: left">
+            负责复杂功能、<span class="s2">高数据量</span>场景（几十万～百万级别）的<span class="s2">系统设计</span>。
+          </p>
+        </li>
+        <li data-list-text="3."><p style="padding-top: 8pt; padding-left: 18pt; text-indent: -12pt; text-align: left">负责接口优化、数据库优化保证系统在处理大数据量下运行的稳定性。</p></li>
+        <li data-list-text="4.">
+          <p style="padding-top: 6pt; padding-left: 6pt; text-indent: 0pt; line-height: 145%; text-align: left">
+            重构老代码，使 <span class="s2">Sonarqube </span>代码规则 0 异味，0Bug，保证系统<span class="s2">代码质量</span>，提升系统代码的可读性可维护性。
+          </p>
+        </li>
+        <li data-list-text="5.">
+          <p style="padding-left: 18pt; text-indent: -12pt; line-height: 18pt; text-align: left">
+            负责一些<span class="s2">高并发场景</span>下接口的<span class="s2">优化和压测</span>。保证接口不会崩。
+          </p>
+        </li>
+        <li data-list-text="6.">
+          <p style="padding-top: 5pt; padding-left: 18pt; text-indent: -12pt; text-align: left">负责日常服务器的<span class="s2">运维</span>工作。</p>
+        </li>
+      </ol>
+      <p style="text-indent: 0pt; text-align: left"><br /></p>
+      <p class="s8" style="padding-left: 6pt; text-indent: 0pt; text-align: left">&lt;<span class="h3">二</span>&gt; <span class="h3">某公司短信微服务</span></p>
+      <p class="s5" style="padding-top: 3pt; padding-left: 6pt; text-indent: 0pt; text-align: left">
+        <span class="p">技 术 栈</span><span class="s1">: </span>express<span class="s2">、</span>mongdb<span class="s2">、</span>redis <span class="p">等</span>
       </p>
-      <p><strong><三>.微信音乐小程序项目</strong></p>
-      <p>技 术 栈: WXML WXSS WXS JavaScript weapp/vant</p>
-      <p>项目特点:使用<strong>自己封装的响应式状态管理工具</strong>进行开发</p>
-      <p>
-        Git 地 址:
-        <a href="https://gitee.com/wu-yu-pei/wx-music">https://gitee.com/wu-yu-pei/wx-music</a>
+      <p style="padding-top: 4pt; padding-left: 6pt; text-indent: 0pt; line-height: 144%; text-align: left">
+        项目介绍: 某公司的基础短信服务，短信验证码等服务，有时项目会有大数据量处理，由于业务需要，每周三会发送 <span class="s2">200 万</span>左右的短信。
       </p>
-      <p style="line-height: 2.5rem">
-        项目介绍:此项目是模仿 QQ 音乐的微信小程序制作的,项目使用 flex
-        进行布局,使用自己的状态管理工具对音乐播放的状态进行响应式管理,使用了第三方 ui:weapp/vant
-        的一些组件,项目主要功能包括歌曲的播放,歌词的实时展
-        示,歌词滚动,歌曲切换,视频播放,小程序分包,简单的优化等技术.
+      <p style="padding-left: 6pt; text-indent: 0pt; text-align: left">技术实现:</p>
+      <ol id="l3">
+        <li data-list-text="1."><p style="padding-top: 9pt; padding-left: 19pt; text-indent: -13pt; text-align: left">由于数据量较大,而且数据结构经常发生变动数据库使用的是 mongdb.</p></li>
+        <li data-list-text="2.">
+          <p style="padding-top: 5pt; padding-left: 19pt; text-indent: -13pt; text-align: left">封装常用的<span class="s2">中间件</span>，守卫，装饰器，<span class="s2">签名校验</span>等.</p>
+        </li>
+        <li data-list-text="3.">
+          <p style="padding-top: 7pt; padding-left: 6pt; text-indent: 0pt; line-height: 139%; text-align: left">
+            其它项目通过 HTTP 调用微服务,项目做了服务稳定性的优化（经常会有大量短信发放）使用<span class="s2">队列</span>减轻服务器并发压力，保证短信服务的稳定性.
+          </p>
+        </li>
+        <li data-list-text="4.">
+          <p style="padding-left: 19pt; text-indent: -13pt; line-height: 16pt; text-align: left">
+            索引优化,根据业务给字段加上索引提升查询效率，<span class="s2">慢查询日志分析</span>，警告。及时优化.
+          </p>
+        </li>
+        <li>
+          <p style="padding-top: 5pt; padding-left: 6pt; text-indent: 0pt; line-height: 90%; text-align: left">
+            安全方面 后端做了入参，出参放篡改，Api 防重防, 黑名单机制, 前后端使用团队统一加密生成签名等<span class="s2">安全措施</span>.
+          </p>
+        </li>
+      </ol>
+      <p class="s8" style="padding-left: 6pt; text-indent: 0pt; line-height: 22pt; text-align: left">&lt;<span class="h3">三</span>&gt; <span class="h3">某公司团队技术基建</span></p>
+      <p style="padding-top: 7pt; padding-left: 6pt; text-indent: 0pt; line-height: 127%; text-align: left">
+        项目介绍：X 餐饮公司<span class="s2">前端/后端基建 </span>SDK 开发，集成阿里云/百度云短信 SDK、埋点 SDK、自研<span class="s2">脚手架 </span>SDK、团队各个端的 JavaScript Utils SDK 等
+        <span class="s2">8+SDK 统一管理</span>。
       </p>
-      <p><strong>个人平台</strong></p>
-      <hr />
-      <p>Gitee: <a href="https://gitee.com/wu-yu-pei">https://gitee.com/wu-yu-pei</a></p>
-      <p>npm: <a href="">https://www.npmjs.com/~wuyupei</a></p>
-      <p>个人爱好: 喜欢浏览技术分享平台:掘金,Github 等.</p>
-      <p>学习方式: 官方文档, 视频, 微信公众号, 掘金, Github.</p>
-      <p>
-        个人优势:
-        自学能力较强,热爱前端技术,对前端前沿技术很感兴趣,时刻关注且通过文档自学可以快速上手并应用.对
-        后端有一定的了解,拥有自己的服务器,并且在服务器上部署有自己的项目.
+      <p style="padding-left: 6pt; text-indent: 0pt; line-height: 145%; text-align: left">
+        技术栈： <span class="s2">TypeScript</span>、<span class="s2">rollup</span>、<span class="s2">babel</span>、<span class="s2">Vue</span>、<span class="s2">VitePress</span>、<span class="s2"
+          >pnpm</span
+        >、<span class="s2">monorepo </span>等主要工作：
       </p>
+      <ol id="l4">
+        <li data-list-text="1.">
+          <p style="padding-left: 18pt; text-indent: -12pt; line-height: 18pt; text-align: left">负责 <span class="s2">monorepo </span>项目的初始搭建以及相关 <span class="s2">CLI </span>的开发</p>
+        </li>
+        <li data-list-text="2.">
+          <p style="padding-top: 5pt; padding-left: 18pt; text-indent: -12pt; text-align: left">负责协助团队其他成员完成 SDK 开发&amp;<span class="s2">npm </span>发包</p>
+        </li>
+        <li data-list-text="3."><p style="padding-top: 8pt; padding-left: 18pt; text-indent: -12pt; text-align: left">统一团队 SDK 开发依赖环境</p></li>
+        <li data-list-text="4.">
+          <p style="padding-top: 9pt; padding-left: 6pt; text-indent: 0pt; line-height: 167%; text-align: left">
+            monorepo 项目 cli 开发（文档生成，代码生成，.d.ts 文件生成）等，为后续使用 SDK 人员提供便捷。
+          </p>
+        </li>
+      </ol>
+      <p class="s8" style="padding-left: 6pt; text-indent: 0pt; line-height: 21pt; text-align: left">&lt;<span class="h3">四</span>&gt; <span class="h3">某公司点餐微信小程序</span></p>
+      <p style="padding-top: 10pt; padding-left: 6pt; text-indent: 0pt; line-height: 144%; text-align: left">
+        项目介绍：X 餐饮公司点餐微信小程序开发技术栈： <span class="s2">React</span>、 <span class="s2">Taro</span>、 <span class="s2">Redux </span>等
+      </p>
+      <p style="padding-left: 6pt; text-indent: 0pt; text-align: left">主要工作：</p>
+      <ol id="l5">
+        <li data-list-text="1."><p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">参与微信小程序日常小迭代开发</p></li>
+        <li data-list-text="2."><p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">配合后端完成联调，保证功能按时上线</p></li>
+        <li data-list-text="3.">
+          <p style="padding-top: 6pt; padding-left: 6pt; text-indent: 0pt; line-height: 127%; text-align: left">
+            负责微信小程序 <span class="s2">H5 模块</span>（活动，问卷，充值等）的前后端开发工作，<span class="s2">并发</span>情况下负责相关接口的调优和保护（<span class="s2"
+              >随机限流，锁，参数放篡改，库存保护，数据库设计</span
+            >等）
+          </p>
+        </li>
+        <li data-list-text="4.">
+          <p style="padding-left: 18pt; text-indent: -12pt; text-align: left">根据需求时间节点高质量交付开发工作保证，根据项目开发风险、周期进行<span class="s2">整体开发排期</span>。</p>
+        </li>
+      </ol>
+      <p style="padding-top: 8pt; text-indent: 0pt; text-align: left"><br /></p>
+      <p class="s8" style="padding-left: 6pt; text-indent: 0pt; text-align: left">&lt;<span class="h3">五</span>&gt; <span class="h3">某某公司大屏</span></p>
+      <p style="padding-top: 6pt; padding-left: 6pt; text-indent: 0pt; text-align: left">技 术 栈<span class="s1">: Vue3 Vite Pinia VueUse JypeScript Element-plus</span></p>
+      <p style="padding-top: 5pt; padding-left: 6pt; text-indent: 0pt; text-align: left">技术实现:</p>
+      <ol id="l6">
+        <li data-list-text="1."><p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">对 Element-plus 组件， Echarts 等进行二次封装，form 表单配置化开发。</p></li>
+        <li data-list-text="2."><p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">使用面向对象的方式封装 axios,axios 拦截器，localStorage 等。</p></li>
+        <li data-list-text="3."><p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">使用 Pinia 管理数据状态，使用插件完成数据持久化等操作。</p></li>
+        <li data-list-text="4."><p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">路由懒加载，自定义指令控制按钮权限。</p></li>
+        <li data-list-text="5."><p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">封装组件 10+，工具函数 5+。</p></li>
+        <li data-list-text="6."><p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">Vite 打包后进行资源分析，大资源 element-plus,vue 等使用 cdn 加速等，上线部署。</p></li>
+      </ol>
+
+      <p class="s8" style="padding-left: 6pt; text-indent: 0pt; line-height: 22pt; text-align: left">
+        &lt;<span class="h3">六</span>&gt;MyPage <span class="h3">浏览器主页</span>(<span class="h3">个人开源项目</span>)
+      </p>
+      <p style="padding-top: 10pt; padding-left: 6pt; text-indent: 0pt; line-height: 167%; text-align: left">
+        技 术 栈<span class="s1">: Vue3 Vite Pinia VueUse TypeScript SocketIo koa mysql redis </span>等预览地址<span class="s1">: </span><span class="s4">https://page.wuyupei.top</span>
+      </p>
+      <p style="padding-left: 6pt; text-indent: 0pt; text-align: left">
+        前端 <span class="s1">Github </span>地址<span class="s1">: </span><span class="s4">https://github.com/wu-yu-pei/my-page</span>
+      </p>
+      <p style="padding-top: 9pt; padding-left: 6pt; text-indent: 0pt; text-align: left">
+        后端 <span class="s1">Github </span>地址<span class="s1">: </span><span class="s4">https://github.com/wu-yu-pei/my-page-server</span>
+      </p>
+      <p style="padding-top: 9pt; padding-left: 6pt; text-indent: 0pt; text-align: left">技术实现<span class="s1">:</span></p>
+      <ol id="l7">
+        <li data-list-text="1.">
+          <p style="padding-top: 9pt; padding-left: 19pt; text-indent: -13pt; text-align: left">后端使用 <span class="s1">koa </span>搭建，完成了微信公众号对接，微信扫码登录等功能。</p>
+        </li>
+        <li data-list-text="2.">
+          <p style="padding-top: 9pt; padding-left: 19pt; text-indent: -13pt; text-align: left">使用了 <span class="s1">redis </span>对验证码，聊天信息等相关内容进行缓存。</p>
+        </li>
+        <li data-list-text="3.">
+          <p style="padding-top: 9pt; padding-left: 19pt; text-indent: -13pt; text-align: left">集成 <span class="s1">Socket.io </span>实现了一个群聊天室，聊天，修改用户图像等功能。</p>
+        </li>
+        <li data-list-text="4.">
+          <p style="padding-top: 9pt; padding-left: 19pt; text-indent: -13pt; text-align: left">
+            前端使用 <span class="s1">vue3+vite </span>进行开发，对 <span class="s1">axios </span>进行了二次封装，使用 <span class="s1">pinia </span>管理全局状态。
+          </p>
+        </li>
+        <li data-list-text="5.">
+          <p style="padding-top: 9pt; padding-left: 19pt; text-indent: -13pt; text-align: left">
+            封装组件 <span class="s1">10+</span>，组件化开发，自定义 <span class="s1">vue </span>指令，提升开发效率。
+          </p>
+        </li>
+        <li data-list-text="6.">
+          <p style="padding-top: 9pt; padding-left: 19pt; text-indent: -13pt; text-align: left">处理 <span class="s1">json </span>文件的解析和下载。</p>
+        </li>
+        <li data-list-text="7.">
+          <p style="padding-top: 9pt; padding-left: 19pt; text-indent: -13pt; text-align: left">项目实现了 <span class="s1">CI/CD,</span>使用的是 <span class="s1">gitAction </span>完成的。</p>
+        </li>
+      </ol>
+      <p style="text-indent: 0pt; text-align: left" />
+      <h2 style="padding-top: 5pt; padding-left: 6pt; text-indent: 0pt; text-align: left">个人平台</h2>
+      <p style="padding-top: 8pt; padding-left: 6pt; text-indent: 0pt; text-align: left">
+        博客<a href="https://wuyupei.top/" class="s3" target="_blank">: </a
+        ><span style="color: #800080; font-family: 'Lucida Sans', sans-serif; font-style: normal; font-weight: normal; text-decoration: underline; font-size: 10pt">https://wuyupei.top</span
+        ><span class="s11"> </span>力扣<span class="s1">: </span><span class="s4">https://leetcode.cn/u/dadaguai-x</span>
+      </p>
+      <p style="padding-top: 9pt; padding-left: 6pt; text-indent: 0pt; text-align: left">优秀项目：</p>
+      <ol id="l8">
+        <li data-list-text="1.">
+          <p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">
+            <a href="https://github.com/wu-yu-pei/vue-project-template">https://github.com/wu-yu-pei/vue-project-template</a>
+          </p>
+        </li>
+        <li data-list-text="2.">
+          <p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">
+            <a href="https://github.com/wu-yu-pei/cli_project_templaaate">https://github.com/wu-yu-pei/cli_project_templaaate</a>
+          </p>
+        </li>
+        <li data-list-text="3.">
+          <p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">
+            <a href="https://github.com/wu-yu-pei/node-project-template">https://github.com/wu-yu-pei/node-project-template</a>
+          </p>
+        </li>
+        <li data-list-text="4.">
+          <p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">
+            <a href="https://github.com/wu-yu-pei/weixinapp-project-template">https://github.com/wu-yu-pei/weixinapp-project-template</a>
+          </p>
+        </li>
+        <li data-list-text="5.">
+          <p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left">
+            <a href="https://github.com/wu-yu-pei/monorepo-utils-lib">https://github.com/wu-yu-pei/monorepo-utils-lib</a>
+          </p>
+        </li>
+        <li data-list-text="6.">
+          <p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left"><a href="http://page.wuyupei.top/">http://page.wuyupei.top/</a></p>
+        </li>
+        <li data-list-text="7.">
+          <p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left"><a href="https://shop.wuyupei.top/">https://shop.wuyupei.top/</a></p>
+        </li>
+        <li data-list-text="8.">
+          <p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left"><a href="http://gd.wuyupei.top/">http://gd.wuyupei.top/</a></p>
+        </li>
+        <li data-list-text="9.">
+          <p style="padding-top: 9pt; padding-left: 18pt; text-indent: -12pt; text-align: left"><a href="http://3dflower.wuyupei.top/">http://3dflower.wuyupei.top</a></p>
+        </li>
+        <li data-list-text="10.">
+          <p style="padding-top: 9pt; padding-left: 23pt; text-indent: -17pt; text-align: left"><a href="http://3dyanhua.wuyupei.top/">http://3dyanhua.wuyupei.top/</a></p>
+        </li>
+        <li data-list-text="11.">
+          <p style="padding-top: 9pt; padding-left: 23pt; text-indent: -17pt; text-align: left"><a href="http://3dclock.wuyupei.top/">http://3dclock.wuyupei.top/</a></p>
+        </li>
+      </ol>
+      <p style="padding-top: 9pt; padding-left: 6pt; text-indent: 0pt; text-align: left">
+        学习方式<span class="s1">: </span>官方文档<span class="s1">, </span>视频<span class="s1">, </span>微信公众号<span class="s1">, </span>掘金<span class="s1">, Github.</span>
+      </p>
+      <p style="padding-top: 3pt; padding-left: 6pt; text-indent: 0pt; line-height: 167%; text-align: justify">
+        个人优势<span class="s1">: </span>自学能力极强<span class="s1">,</span>热爱技术<span class="s1">,</span>有代码洁癖<span class="s1">,</span>对前端前沿技术很感兴趣<span class="s1">,</span
+        >时刻关注且通过文档自学可以快速上手并应用<span class="s1">.</span>拥有自己的服务器<span class="s1">,</span>并且在服务器上部署有自己的项目<span class="s1">.</span
+        >熟悉后端开发模式，熟悉项目上线过程，熟悉自动化服务 <span class="s1">CICD </span>等。
+      </p>
+      <p style="padding-left: 6pt; text-indent: 0pt; line-height: 167%; text-align: left">个人劣势：年龄较小，没有丰厚的实战经验，技术水平广但是许多没有相关实践经验，希望有机会能够得到锻炼。</p>
     </div>
     <div class="fotter">
       <p>All articles written with ❤ by Wu Yupei</p>
